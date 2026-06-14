@@ -1,0 +1,20 @@
+node_modules
+dist
+.cursor
+.DS_Store
+*.log
+.env
+.env.*
+
+# Локальные исходники и референсы — не нужны на GitHub
+/DAnger/
+/legacy/
+/Paralax/
+
+# Случайные файлы в корне (не public/)
+/*.png
+/*.jpg
+/*.jpeg
+/*.mp4
+/*.webp
+/*.gif
