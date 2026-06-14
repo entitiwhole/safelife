@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import { scrollToSection } from '@/lib/scroll'
 import { useEffect, useRef, useState } from 'react'
 import type { Category } from '@/data/threats'
 import { HERO_SLIDES } from '@/data/hero-slides'
@@ -150,13 +151,13 @@ export function HalideTopoHero({
         </div>
 
         <nav className="halide-nav hidden md:flex">
-          <a href="#how-it-works">Как пользоваться</a>
+          <a href="#how-it-works" onClick={scrollToSection('how-it-works')}>Как пользоваться</a>
           {categories.map((c) => (
-            <a key={c.id} href={`#${c.id}`}>
+            <a key={c.id} href={`#${c.id}`} onClick={scrollToSection(c.id)}>
               {c.label}
             </a>
           ))}
-          <a href="#experiences">Опыт людей</a>
+          <a href="#experiences" onClick={scrollToSection('experiences')}>Опыт людей</a>
           <a href="tel:112" className="halide-nav-emergency">
             112
           </a>
@@ -176,15 +177,15 @@ export function HalideTopoHero({
 
         {mobileOpen && (
           <div className="halide-mobile-menu md:hidden">
-            <a href="#how-it-works" onClick={onCloseMobile}>
+            <a href="#how-it-works" onClick={(e) => { scrollToSection('how-it-works')(e); onCloseMobile?.() }}>
               Как пользоваться
             </a>
             {categories.map((c) => (
-              <a key={c.id} href={`#${c.id}`} onClick={onCloseMobile}>
+              <a key={c.id} href={`#${c.id}`} onClick={(e) => { scrollToSection(c.id)(e); onCloseMobile?.() }}>
                 {c.label}
               </a>
             ))}
-            <a href="#experiences" onClick={onCloseMobile}>
+            <a href="#experiences" onClick={(e) => { scrollToSection('experiences')(e); onCloseMobile?.() }}>
               Опыт людей
             </a>
             <a href="tel:112" className="halide-mobile-emergency">
@@ -215,7 +216,7 @@ export function HalideTopoHero({
             <button type="button" className="cta-button" onClick={onScrollToThreats}>
               СМОТРЕТЬ УГРОЗЫ
             </button>
-            <a href="#experiences" className="cta-button cta-button-ghost">
+            <a href="#experiences" className="cta-button cta-button-ghost" onClick={scrollToSection('experiences')}>
               ОПЫТ ЛЮДЕЙ
             </a>
           </div>
