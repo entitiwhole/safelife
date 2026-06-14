@@ -1,29 +1,14 @@
 import type { Category } from '@/data/threats'
-import { assetUrl } from '@/lib/assets'
 
-/** Локальные кадры из public/danger */
-const THREAT_DANGER_PATHS = [
-  'danger/01.jpg',
-  'danger/02.jpg',
-  'danger/03.jpg',
-  'danger/04.jpg',
-  'danger/05.jpg',
-  'danger/06.jpg',
-  'danger/07.jpg',
-  'danger/08.jpg',
-  'danger/09.jpg',
-  'danger/10.jpg',
-  'danger/11.jpg',
-  'danger/12.png',
-  'danger/13.jpg',
-  'danger/14.jpg',
-  'danger/15.jpg',
-  'danger/16.png',
-  'danger/17.png',
-  'danger/18.png',
-] as const
+const threatModules = import.meta.glob<string>(
+  '../assets/images/threats/*.{jpg,png}',
+  { eager: true, query: '?url', import: 'default' },
+)
 
-export const THREAT_DANGER_IMAGES = THREAT_DANGER_PATHS.map(assetUrl)
+/** Порядок 01–18 по имени файла (как в DAnger) */
+export const THREAT_DANGER_IMAGES = Object.entries(threatModules)
+  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+  .map(([, url]) => url)
 
 const CATEGORY_OFFSET: Record<Category, number> = {
   cyber: 0,

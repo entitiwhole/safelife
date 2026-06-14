@@ -1,13 +1,17 @@
 import type { HalideSlide } from '@/components/ui/halide-topo-hero'
-import { assetUrl } from '@/lib/assets'
+import caseMap from '@/assets/images/hero/case-map.jpg'
+import digitalSurveillance from '@/assets/images/hero/digital-surveillance.jpg'
+import evidencePhotos from '@/assets/images/hero/evidence-photos.jpg'
+import investigationDesk from '@/assets/images/hero/investigation-desk.jpg'
+import secretFilesOpener from '@/assets/images/hero/secret-files-opener.mp4'
 
-/** Локальные ассеты из public/hero */
+/** Ассеты hero — Vite подставляет корректные URL при сборке */
 export const HERO_ASSETS = {
-  investigationDesk: assetUrl('hero/investigation-desk.jpg'),
-  evidencePhotos: assetUrl('hero/evidence-photos.jpg'),
-  caseMap: assetUrl('hero/case-map.jpg'),
-  digitalSurveillance: assetUrl('hero/digital-surveillance.jpg'),
-  secretFilesOpener: assetUrl('hero/secret-files-opener.mp4'),
+  investigationDesk,
+  evidencePhotos,
+  caseMap,
+  digitalSurveillance,
+  secretFilesOpener,
 } as const
 
 /** По одному главному кадру на слайд — в оригинальных цветах */

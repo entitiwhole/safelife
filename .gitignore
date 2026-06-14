@@ -7,9 +7,9 @@ dist
 .env.*
 
 # Локальные исходники и референсы — не нужны на GitHub
-/DAnger/
-/legacy/
-/Paralax/
+/public/danger/
+/public/hero/
+/public/parallax/
 
 # Случайные файлы в корне (не public/)
 /*.png

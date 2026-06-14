@@ -1,14 +1,15 @@
-import { assetUrl } from '@/lib/assets'
+import alessandroZanetti from '@/assets/images/parallax/alessandro-zanetti.jpg'
+import geminiSurveillance from '@/assets/images/parallax/gemini-surveillance.png'
+import main from '@/assets/images/parallax/main.jpg'
+import missing from '@/assets/images/parallax/missing.jpg'
 
-/** Локальные кадры из public/parallax */
 export const PARALLAX_ASSETS = {
-  main: assetUrl('parallax/main.jpg'),
-  alessandroZanetti: assetUrl('parallax/alessandro-zanetti.jpg'),
-  geminiSurveillance: assetUrl('parallax/gemini-surveillance.png'),
-  missing: assetUrl('parallax/missing.jpg'),
+  main,
+  alessandroZanetti,
+  geminiSurveillance,
+  missing,
 } as const
 
-/** Main.jpg — главный кадр (index 0), остальные без повторов */
 export const PARALLAX_ZOOM_IMAGES = [
   { src: PARALLAX_ASSETS.main, alt: 'Доска расследования — главный кадр' },
   { src: PARALLAX_ASSETS.alessandroZanetti, alt: 'Центр видеонаблюдения' },
