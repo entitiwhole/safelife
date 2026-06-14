@@ -9,8 +9,13 @@ const html = `<!DOCTYPE html>
     <meta charset="UTF-8" />
     <title>Перенаправление…</title>
     <script>
-      sessionStorage.setItem('spa-redirect', location.pathname + location.search + location.hash);
-      location.replace(location.origin + '${BASE}');
+      var base = '${BASE}';
+      var rest = location.pathname.replace(new RegExp('^' + base.replace(/\\/$/, '') + '/?'), '');
+      if (rest) {
+        location.replace(location.origin + base + '#/' + rest.replace(/^\\//, ''));
+      } else {
+        location.replace(location.origin + base);
+      }
     </script>
   </head>
   <body></body>

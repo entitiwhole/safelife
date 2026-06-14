@@ -391,9 +391,9 @@ export const CATEGORY_LABELS: Record<Category, string> = {
 export function getThreatUrl(id: string): string {
   const base = import.meta.env.BASE_URL
   if (typeof window !== 'undefined') {
-    return `${window.location.origin}${base}threat/${id}`
+    return `${window.location.origin}${base}#/threat/${id}`
   }
-  return `${base}threat/${id}`
+  return `${base}#/threat/${id}`
 }
 
 export function findThreatById(id: string): { threat: Threat; category: Category } | null {

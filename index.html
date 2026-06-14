@@ -13,14 +13,27 @@
   <body>
     <script>
       (function () {
-        var redirect = sessionStorage.getItem('spa-redirect');
-        if (redirect) {
-          sessionStorage.removeItem('spa-redirect');
-          history.replaceState(null, '', redirect);
+        sessionStorage.removeItem('spa-redirect');
+        var base = '%BASE_URL%';
+        var prefix = base.replace(/\/$/, '');
+        var path = location.pathname;
+        if (path.indexOf(prefix) === 0 && path.length > prefix.length) {
+          var rest = path.slice(prefix.length).replace(/^\//, '');
+          if (rest && !location.hash) {
+            location.replace(location.origin + base + '#/' + rest + location.search);
+            return;
+          }
+        }
+        if (/^\/threat\//.test(path)) {
+          location.replace(location.origin + base + '#' + path + location.search);
         }
       })();
     </script>
-    <div id="root"></div>
+    <div id="root">
+      <p style="margin:0;padding:2rem;font-family:system-ui,sans-serif;color:#e0e0e0;background:#0a0a0a;min-height:100vh">
+        Загрузка…
+      </p>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
