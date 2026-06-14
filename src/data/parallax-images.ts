@@ -1,9 +1,11 @@
-/** Локальные кадры из public/parallax (исходники: E:/sitecrime/Paralax) */
+import { assetUrl } from '@/lib/assets'
+
+/** Локальные кадры из public/parallax */
 export const PARALLAX_ASSETS = {
-  main: '/parallax/main.jpg',
-  alessandroZanetti: '/parallax/alessandro-zanetti.jpg',
-  geminiSurveillance: '/parallax/gemini-surveillance.png',
-  missing: '/parallax/missing.jpg',
+  main: assetUrl('parallax/main.jpg'),
+  alessandroZanetti: assetUrl('parallax/alessandro-zanetti.jpg'),
+  geminiSurveillance: assetUrl('parallax/gemini-surveillance.png'),
+  missing: assetUrl('parallax/missing.jpg'),
 } as const
 
 /** Main.jpg — главный кадр (index 0), остальные без повторов */

@@ -1,5 +1,7 @@
+import { assetUrl } from '@/lib/assets'
+
 /** Gemini_Generated_Image_4ejj6q4ejj6q4ejj (2).png */
-const CAUTION_TAPE_SRC = '/hero/caution-tape.png'
+const CAUTION_TAPE_SRC = assetUrl('hero/caution-tape.png')
 
 /** Одно фото лент — выше, на всю верхнюю часть hero */
 export function CautionTapeChaos() {

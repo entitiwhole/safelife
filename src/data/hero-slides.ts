@@ -1,12 +1,13 @@
 import type { HalideSlide } from '@/components/ui/halide-topo-hero'
+import { assetUrl } from '@/lib/assets'
 
 /** Локальные ассеты из public/hero */
 export const HERO_ASSETS = {
-  investigationDesk: '/hero/investigation-desk.jpg',
-  evidencePhotos: '/hero/evidence-photos.jpg',
-  caseMap: '/hero/case-map.jpg',
-  digitalSurveillance: '/hero/digital-surveillance.jpg',
-  secretFilesOpener: '/hero/secret-files-opener.mp4',
+  investigationDesk: assetUrl('hero/investigation-desk.jpg'),
+  evidencePhotos: assetUrl('hero/evidence-photos.jpg'),
+  caseMap: assetUrl('hero/case-map.jpg'),
+  digitalSurveillance: assetUrl('hero/digital-surveillance.jpg'),
+  secretFilesOpener: assetUrl('hero/secret-files-opener.mp4'),
 } as const
 
 /** По одному главному кадру на слайд — в оригинальных цветах */
