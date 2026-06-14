@@ -1,13 +1,21 @@
-import { copyFileSync, existsSync } from 'node:fs'
+import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-const indexPath = join('dist', 'index.html')
-const notFoundPath = join('dist', '404.html')
+const BASE = '/zashchita/'
 
-if (!existsSync(indexPath)) {
-  console.error('dist/index.html not found — run build first')
-  process.exit(1)
-}
+const html = `<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Перенаправление…</title>
+    <script>
+      sessionStorage.setItem('spa-redirect', location.pathname + location.search + location.hash);
+      location.replace(location.origin + '${BASE}');
+    </script>
+  </head>
+  <body></body>
+</html>
+`
 
-copyFileSync(indexPath, notFoundPath)
-console.log('Copied dist/index.html -> dist/404.html')
+writeFileSync(join('dist', '404.html'), html, 'utf8')
+console.log('Created dist/404.html with SPA redirect')
