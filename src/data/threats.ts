@@ -389,7 +389,8 @@ export const CATEGORY_LABELS: Record<Category, string> = {
 };
 
 export function getThreatUrl(id: string): string {
-  return `/threat/${id}`
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+  return `${base}/threat/${id}`
 }
 
 export function findThreatById(id: string): { threat: Threat; category: Category } | null {
